@@ -1,0 +1,323 @@
+/* ============================================================================
+   Growl Audio — Design System Deck
+   "The Calibrated Meter" — exact tokens from traqel/growl-audio-landing
+   ============================================================================ */
+
+:root {
+  /* Dark palette — the instrument face */
+  --bg: #0b0c10;
+  --bg-alt: #0f1015;
+  --surface: #13141a;
+  --surface-2: #181920;
+
+  /* The one live signal */
+  --accent: #008380;
+  --accent-text: #2faca6;
+
+  /* Text on dark — OKLCH ramp, never pure white */
+  --text: oklch(98% 0.004 195);
+  --text-2: oklch(80% 0.008 195);
+  --text-3: oklch(64% 0.012 195);
+
+  /* Light sections — mirrored ramp */
+  --bg-light: #f5f6f8;
+  --bg-white: #ffffff;
+  --ink: #1e2230;
+  --ink-soft: #555968;
+  --ink-mute: #636778;
+
+  --warn-red: #c0392b;
+
+  /* Borders / glows */
+  --border: rgba(255, 255, 255, 0.08);
+  --border-soft: rgba(255, 255, 255, 0.05);
+  --border-on-light: rgba(0, 0, 0, 0.08);
+  --accent-dim: rgba(0, 131, 128, 0.1);
+  --accent-glow: rgba(0, 131, 128, 0.22);
+
+  /* Shadows */
+  --shadow-btn-rest: 0 6px 16px rgba(0, 0, 0, 0.18);
+  --shadow-btn-press: 0 1px 3px rgba(0, 0, 0, 0.22);
+  --shadow-card-glow: 0 0 40px -10px rgba(0, 131, 128, 0.15);
+  --ring-focus: 0 0 0 3px rgba(0, 131, 128, 0.12);
+
+  --font: 'JetBrains Mono', 'Fira Code', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #000;
+  font-family: var(--font);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+deck-stage:not(:defined) { visibility: hidden; }
+
+/* Every slide: machined, mono, instrument-grade */
+deck-stage > section {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  display: flex;
+  flex-direction: column;
+  line-height: 1.65;
+}
+
+/* ── Slide chrome ───────────────────────────────────────────── */
+.chrome {
+  height: 76px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 80px;
+  border-bottom: 1px solid var(--border);
+  gap: 20px;
+}
+.chrome .brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--text);
+}
+.chrome .kicker {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+}
+.chrome .idx {
+  margin-left: auto;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  color: var(--text-3);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Slide body ─────────────────────────────────────────────── */
+.body {
+  flex: 1;
+  min-height: 0;
+  padding: 64px 80px 72px;
+  display: flex;
+  flex-direction: column;
+}
+
+.kicker-lg {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+  margin: 0 0 22px;
+}
+
+/* Type — weight + tracking hierarchy, one family */
+.display {
+  font-size: 92px;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 1.04;
+  margin: 0;
+  color: var(--text);
+}
+.headline {
+  font-size: 60px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.06;
+  margin: 0 0 20px;
+  color: var(--text);
+}
+.title {
+  font-size: 40px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin: 0;
+  color: var(--text);
+}
+.lede {
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--text-2);
+  margin: 0 0 40px;
+  max-width: 1080px;
+}
+.body-txt { font-size: 18px; line-height: 1.6; color: var(--text-2); }
+
+.t1 { color: var(--text); }
+.t2 { color: var(--text-2); }
+.t3 { color: var(--text-3); }
+.teal { color: var(--accent-text); }
+
+/* ── Reusable building blocks ───────────────────────────────── */
+
+/* Card — milled panel, hairline teal border, flat at rest */
+.panel {
+  background: var(--surface);
+  border: 1px solid rgba(0, 131, 128, 0.40);
+  border-radius: 0;
+  padding: 36px;
+}
+.panel.plain { border-color: var(--border); }
+
+/* Label / mono caption */
+.label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+/* Swatch chip */
+.swatch {
+  border-radius: 0;
+  border: 1px solid var(--border);
+}
+
+/* Mono code token */
+.code {
+  font-family: var(--font);
+  font-size: 14px;
+  color: var(--accent-text);
+  letter-spacing: 0.01em;
+}
+
+/* Buttons (live, machined) */
+.btn {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font);
+  border-radius: 0;
+  border: 1px solid transparent;
+  cursor: pointer;
+  box-shadow: var(--shadow-btn-rest);
+  transition: box-shadow 0.12s ease, transform 0.12s ease, color 0.12s ease, border-color 0.12s ease;
+  -webkit-font-smoothing: antialiased;
+}
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  transform: translate3d(calc(-100% + 8px), 0, 0);
+  transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.btn:hover::before { transform: translate3d(0, 0, 0); }
+.btn:active { box-shadow: var(--shadow-btn-press); transform: translateY(1px); }
+
+.btn-primary { background: var(--accent); color: #fff; font-weight: 600; padding: 14px 28px; font-size: 16px; }
+.btn-primary::before { background: #525252; }
+.btn-dl { background: var(--accent); color: #fff; font-weight: 700; padding: 16px 30px; font-size: 16px; }
+.btn-dl::before { background: #525252; }
+.btn-secondary { background: #f0f2f5; color: var(--ink-soft); border-color: var(--border-on-light); font-weight: 600; padding: 14px 28px; font-size: 16px; }
+.btn-secondary::before { background: #e5e8ed; }
+.btn-secondary:hover { color: var(--ink); border-color: rgba(0,0,0,0.14); }
+.btn-beta { background: #fff; color: var(--ink-soft); border: 1px solid rgba(0,131,128,0.25); font-weight: 600; padding: 14px 28px; font-size: 16px; }
+.btn-beta::before { background: rgba(0,131,128,0.06); }
+.btn-beta:hover { color: var(--ink); border-color: var(--accent); }
+.btn-donate { background: #fff; color: var(--ink-soft); border: 1px solid var(--border-on-light); font-weight: 600; padding: 14px 28px; font-size: 16px; }
+.btn-donate::before { background: rgba(192,57,43,0.14); }
+.btn-donate:hover { color: var(--warn-red); border-color: rgba(192,57,43,0.3); }
+
+/* Feature tags */
+.ftag {
+  display: inline-flex;
+  align-items: center;
+  font-size: 11px;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  padding: 8px 12px;
+  border-radius: 0;
+  border: none;
+  border-left: 4px solid #b8bdc4;
+  color: #fff;
+  background: #2c3138;
+}
+.ftag-green { border-left-color: #2dd4bf; }
+.ftag-amber { border-left-color: #d99423; }
+.fmt-light { color: var(--ink-soft); background: #eef0f3; border-left: 4px solid rgba(0,0,0,0.12); }
+
+/* Inputs */
+.in-light {
+  display: block; width: 100%;
+  padding: 12px 14px;
+  font-size: 15px;
+  font-family: var(--font);
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 0;
+}
+.in-light.focus { border-color: var(--accent); box-shadow: var(--ring-focus); outline: none; }
+.in-light.err { border-color: rgba(192,57,43,0.55); }
+.in-dark {
+  display: block; width: 100%;
+  padding: 9px 12px;
+  font-size: 14px;
+  font-family: var(--font);
+  color: var(--text);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  border-radius: 0;
+}
+.in-dark.focus { border-color: var(--accent); background: rgba(255,255,255,0.06); box-shadow: 0 0 0 3px var(--accent-dim); outline: none; }
+
+/* Footer */
+.foot {
+  flex-shrink: 0;
+  height: 56px;
+  padding: 0 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+.foot .num { color: var(--text-2); font-variant-numeric: tabular-nums; }
+
+/* Light-section block, for showing the mirrored ramp / light components */
+.light-block {
+  background: var(--bg-white);
+  color: var(--ink);
+  border-radius: 0;
+}
+
+/* Rule line */
+.divider { height: 1px; background: var(--border); border: 0; margin: 0; width: 100%; }
+
+/* Mono number badge */
+.bignum {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--accent-text);
+}
+
+/* Entrance — subtle, end-state is base */
+@media (prefers-reduced-motion: no-preference) {
+  [data-deck-active] .anim {
+    animation: rise 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+  [data-deck-active] .anim-2 { animation-delay: 0.06s; }
+  [data-deck-active] .anim-3 { animation-delay: 0.12s; }
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
+}
