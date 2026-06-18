@@ -92,6 +92,9 @@ hr.rule{border:0;border-top:1px solid var(--border);margin:0;}
 .asset-card .meta{padding:16px 18px;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:4px;}
 .asset-card .meta .name{font-size:13px;font-weight:600;color:var(--text);}
 .asset-card .meta .spec{font-size:11px;color:var(--text-3);letter-spacing:0.04em;}
+.dl{display:inline-flex;align-items:center;gap:7px;margin-top:10px;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent-text);text-decoration:none;border:1px solid rgba(0,131,128,0.4);padding:7px 12px;align-self:flex-start;transition:background 0.15s,border-color 0.15s;}
+.dl:hover{background:rgba(0,131,128,0.12);border-color:var(--accent);}
+.dl svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
 
 /* ── tags ──────────────────────────────────────────────── */
 .tag-grid{display:flex;flex-wrap:wrap;gap:10px;}
@@ -376,7 +379,8 @@ Timestamps:
             <text x="90" y="46" font-family="'JetBrains Mono',monospace" font-weight="300" font-size="10.5" letter-spacing="6">AUDIO</text>
           </svg>
         </div>
-        <div class="meta"><div class="name">Logo · White</div><div class="spec">SVG · transparent bg · dark use</div></div>
+        <div class="meta"><div class="name">Logo · White</div><div class="spec">SVG · transparent bg · dark use</div>
+          <a class="dl" href="assets/logo-white.svg" download="growl-audio-logo-white.svg"><svg viewBox="0 0 24 24"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>Download SVG</a></div>
       </div>
       <div class="asset-card">
         <div class="preview on-light">
@@ -388,19 +392,22 @@ Timestamps:
             <text x="90" y="46" font-family="'JetBrains Mono',monospace" font-weight="300" font-size="10.5" letter-spacing="6">AUDIO</text>
           </svg>
         </div>
-        <div class="meta"><div class="name">Logo · Black</div><div class="spec">SVG · transparent bg · light use</div></div>
+        <div class="meta"><div class="name">Logo · Black</div><div class="spec">SVG · transparent bg · light use</div>
+          <a class="dl" href="assets/logo-black.svg" download="growl-audio-logo-black.svg"><svg viewBox="0 0 24 24"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>Download SVG</a></div>
       </div>
       <div class="asset-card">
         <div class="preview">
           <img src="assets/logo-green-100.png" width="100" height="100" alt="Growl Audio bar mark green 100px" style="display:block;image-rendering:pixelated;"/>
         </div>
-        <div class="meta"><div class="name">Icon Mark · Teal</div><div class="spec">PNG · 100 × 100 · transparent</div></div>
+        <div class="meta"><div class="name">Icon Mark · Teal</div><div class="spec">PNG · 100 × 100 · transparent</div>
+          <a class="dl" href="assets/logo-green-100.png" download="growl-audio-mark-teal.png"><svg viewBox="0 0 24 24"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>Download PNG</a></div>
       </div>
       <div class="asset-card">
         <div class="preview on-light">
           <img src="assets/logo-black-100.png" width="100" height="100" alt="Growl Audio bar mark black 100px" style="display:block;image-rendering:pixelated;"/>
         </div>
-        <div class="meta"><div class="name">Icon Mark · Black</div><div class="spec">PNG · 100 × 100 · transparent</div></div>
+        <div class="meta"><div class="name">Icon Mark · Black</div><div class="spec">PNG · 100 × 100 · transparent</div>
+          <a class="dl" href="assets/logo-black-100.png" download="growl-audio-mark-black.png"><svg viewBox="0 0 24 24"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>Download PNG</a></div>
       </div>
     </div>
 
@@ -409,7 +416,7 @@ Timestamps:
         <div class="title" style="font-size:18px;margin-bottom:6px;">Plugin screenshot</div>
         <div class="body" style="font-size:15px;">assets/gfractor-shot.png · 1100 × 628 · free to use in editorial coverage.</div>
       </div>
-      <div class="label teal">Included above</div>
+      <a class="dl" href="assets/gfractor-shot.png" download="gfractor-1.2.0-screenshot.png"><svg viewBox="0 0 24 24"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>Download PNG</a>
     </div>
 
   </div>
